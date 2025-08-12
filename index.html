@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดตามการใช้งานอีเมล - High-Tech Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-container">
+        <div class="gradient-bg"></div>
+        <div class="particles-container" id="particlesContainer"></div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <h1 class="header-title">ติดตามการใช้งานอีเมล</h1>
+                <p class="header-subtitle">จัดการและติดตามการใช้งานอีเมลในแอปต่างๆ</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Email Form Section -->
+            <section class="form-section glass-panel">
+                <div class="section-header">
+                    <h2 class="section-title">เพิ่มอีเมลใหม่</h2>
+                </div>
+
+                <form class="email-form" id="emailForm">
+                    <!-- Email Input -->
+                    <div class="form-group">
+                        <label for="emailInput" class="form-label">ที่อยู่อีเมล</label>
+                        <div class="email-input-container">
+                            <input 
+                                type="text" 
+                                id="emailInput" 
+                                class="form-input email-input" 
+                                placeholder="กรอกชื่อผู้ใช้"
+                                autocomplete="off"
+                            >
+                            <span class="email-suffix">@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <!-- Note Input -->
+                    <div class="form-group">
+                        <label for="noteInput" class="form-label">หมายเหตุ (ไม่บังคับ)</label>
+                        <textarea 
+                            id="noteInput" 
+                            class="form-input note-input" 
+                            placeholder="เพิ่มหมายเหตุเกี่ยวกับอีเมลนี้..."
+                            rows="3"
+                        ></textarea>
+                        <div class="quick-notes">
+                            <button type="button" class="quick-note-btn" data-note="OTPGmail✅">
+                                <span class="quick-note-icon">📧</span>
+                                OTPGmail
+                            </button>
+                            <button type="button" class="quick-note-btn" data-note="OTPShopee✅">
+                                <span class="quick-note-icon">🛒</span>
+                                OTPShopee
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- App Status Section -->
+                    <div class="form-group">
+                        <label class="form-label">สถานะการใช้งานแอป</label>
+                        <div class="app-toggles-grid">
+                            <div class="app-toggle" data-app="shopee" data-status="unknown">
+                                <div class="app-toggle-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <span class="app-toggle-name">Shopee</span>
+                                <div class="app-toggle-status">
+                                    <div class="status-indicator unknown"></div>
+                                </div>
+                            </div>
+
+                            <div class="app-toggle" data-app="gemini" data-status="unknown">
+                                <div class="app-toggle-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <span class="app-toggle-name">Gemini</span>
+                                <div class="app-toggle-status">
+                                    <div class="status-indicator unknown"></div>
+                                </div>
+                            </div>
+
+                            <div class="app-toggle" data-app="chatgpt" data-status="unknown">
+                                <div class="app-toggle-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L13.5 2.5L16.17 5.17L10.59 10.75C10.21 10.28 9.68 10 9 10C7.9 10 7 10.9 7 12S7.9 14 9 14C9.68 14 10.21 13.72 10.59 13.25L16.17 18.83L13.5 21.5L15 23L21 17V15H19L16.41 17.59L10.83 12.01L16.41 6.41L19 9H21Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <span class="app-toggle-name">ChatGPT</span>
+                                <div class="app-toggle-status">
+                                    <div class="status-indicator unknown"></div>
+                                </div>
+                            </div>
+
+                            <div class="app-toggle" data-app="tiktok" data-status="unknown">
+                                <div class="app-toggle-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M19.59 6.69A4.83 4.83 0 0 1 17 2.2V2H12.44V15.84C12.44 18.11 10.62 19.94 8.35 19.94C6.08 19.94 4.26 18.11 4.26 15.84C4.26 13.57 6.08 11.74 8.35 11.74C8.93 11.74 9.46 11.91 9.93 12.18V7.5C9.46 7.44 8.91 7.41 8.35 7.41C3.74 7.41 0 11.15 0 15.84C0 20.53 3.74 24.27 8.35 24.27C12.96 24.27 16.7 20.53 16.7 15.84V9.09C18.17 10.09 19.96 10.68 21.94 10.68V6.35C21.37 6.35 20.65 6.08 19.59 6.69Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <span class="app-toggle-name">TikTok</span>
+                                <div class="app-toggle-status">
+                                    <div class="status-indicator unknown"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">เพิ่มอีเมล</span>
+                        <div class="btn-loading" style="display: none;">
+                            <div class="loading-spinner"></div>
+                            <span>กำลังเพิ่ม...</span>
+                        </div>
+                    </button>
+                </form>
+
+                <!-- Alert Container -->
+                <div class="alert-container" id="alertContainer"></div>
+            </section>
+
+            <!-- Email List Section -->
+            <section class="list-section">
+                <div class="section-header">
+                    <h2 class="section-title">รายการอีเมล</h2>
+                    <div class="section-actions">
+                        <button class="action-btn search-btn" id="searchToggleBtn" title="ค้นหา">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                        <button class="action-btn refresh-btn" id="refreshBtn" title="รีเฟรช">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 3v5h-5" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 16H3v5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-container" id="searchContainer" style="display: none;">
+                    <div class="search-input-container">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            class="search-input" 
+                            placeholder="ค้นหาอีเมลหรือหมายเหตุ..."
+                        >
+                    </div>
+                </div>
+
+                <!-- Email Cards Container -->
+                <div class="email-cards-container" id="emailCardsContainer">
+                    <div class="loading-state">
+                        <div class="loading-spinner large"></div>
+                        <span class="loading-text">กำลังโหลดข้อมูล...</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Note Edit Modal -->
+    <div class="modal-overlay" id="noteModal" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title">แก้ไขหมายเหตุ</h3>
+                <button class="modal-close-btn" id="modalCloseBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2"/>
+                        <path d="M6 6l12 12" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <textarea 
+                    id="modalNoteInput" 
+                    class="modal-textarea" 
+                    placeholder="กรอกหมายเหตุ..."
+                    rows="4"
+                ></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn secondary" id="cancelNoteEdit">ยกเลิก</button>
+                <button class="modal-btn primary" id="saveNoteEdit">บันทึก</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
